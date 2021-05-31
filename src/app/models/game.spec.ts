@@ -8,4 +8,13 @@ describe('Game', () => {
 
     expect(new Game(player1, player2)).toBeTruthy();
   });
+
+  it('should create a game with two players', () => {
+    let player1 = new Player('Player 1');
+    let player2 = new Player('Player 2');
+    let game = new Game(player1, player2);
+    
+    expect(game.player1 instanceof Player).toBeTruthy();
+    expect(game.player2 instanceof Player).toBeTruthy();
+  });
 });
