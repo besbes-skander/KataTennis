@@ -24,4 +24,8 @@ export class Game {
   set player1(value) {
     this._player1 = value;
   }
+
+  score() {
+    return '0 - 0';
+  }
 }
