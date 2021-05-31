@@ -25,7 +25,11 @@ export class Game {
     this._player1 = value;
   }
 
-  score() {
+  score() : string{
     return '0 - 0';
+  }
+
+  addPoint(name: string) : string {
+    return name;
   }
 }

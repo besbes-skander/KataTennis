@@ -23,9 +23,11 @@ describe('Game', () => {
     expect(game.player2 instanceof Player).toBeTruthy();
   });
 
-  it('should return score to 0 when init game', () => {
+  it('should return Player1 name when he score', () => {
     let game = new Game(player1, player2);
 
-    expect(game.score()).toEqual('0 - 0');
+    const scorer = game.addPoint(player1.name);
+
+    expect(scorer).toEqual('Player 1');
   });
 });
