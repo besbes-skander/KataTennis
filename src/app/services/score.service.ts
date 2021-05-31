@@ -58,10 +58,10 @@ export class ScoreService {
   }
 
   private isAdvantage(player1: Player, player2: Player): boolean {
-    return player1.points != player2.points && (player1.points >=3 && player2.points >= 3);
+    return player1.points != player2.points && (player1.points >= 3 && player2.points >= 3);
   }
 
   private isDeuce(player1: Player, player2: Player): boolean {
-    return player1.points === 3 && player2.points === 3;
+    return player1.points === player2.points && player1.points >= 3 && player2.points >= 3;
   }
 }

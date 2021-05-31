@@ -139,4 +139,20 @@ describe('Game', () => {
 
     expect(game.score()).toEqual('Player 2 Advantage');
   });
+
+  it('should return deuce when player scored more than 3 points but with equality', () => {
+    let game = new Game(player1, player2);
+
+    game.addPoint('Player 1');
+    game.addPoint('Player 1');
+    game.addPoint('Player 1');
+    game.addPoint('Player 1');
+
+    game.addPoint('Player 2');
+    game.addPoint('Player 2');
+    game.addPoint('Player 2');
+    game.addPoint('Player 2');
+
+    expect(game.score()).toEqual('Deuce');
+  });
 });
