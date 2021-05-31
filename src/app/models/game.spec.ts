@@ -124,4 +124,19 @@ describe('Game', () => {
 
     expect(game.score()).toEqual('Player 1 Advantage');
   });
+
+  it('should return advantage for player2', () => {
+    let game = new Game(player1, player2);
+
+    game.addPoint('Player 1');
+    game.addPoint('Player 1');
+    game.addPoint('Player 1');
+
+    game.addPoint('Player 2');
+    game.addPoint('Player 2');
+    game.addPoint('Player 2');
+    game.addPoint('Player 2');
+
+    expect(game.score()).toEqual('Player 2 Advantage');
+  });
 });

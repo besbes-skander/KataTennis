@@ -13,12 +13,12 @@ export class ScoreService {
     let player1Score: string;
     let player2Score: string;
 
-    if (player1.points === 3 && player2.points === 3) {
+    if (this.isDeuce(player1, player2)) {
       return 'Deuce';
     }
 
-    if(player1.points > player2.points && player1.points > 3 && player2.points >= 3) {
-      return player1.name + ' Advantage';
+    if (this.isAdvantage(player1, player2)) {
+      return player1.points > player2.points ? player1.name + ' Advantage' : player2.name + ' Advantage';
     }
 
     switch (player1.points) {
@@ -55,5 +55,13 @@ export class ScoreService {
     }
 
     return player1Score + ' - ' + player2Score;
+  }
+
+  private isAdvantage(player1: Player, player2: Player): boolean {
+    return player1.points != player2.points && (player1.points >=3 && player2.points >= 3);
+  }
+
+  private isDeuce(player1: Player, player2: Player): boolean {
+    return player1.points === 3 && player2.points === 3;
   }
 }
