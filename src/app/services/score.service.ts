@@ -17,6 +17,10 @@ export class ScoreService {
       return 'Deuce';
     }
 
+    if(player1.points > player2.points && player1.points > 3 && player2.points >= 3) {
+      return player1.name + ' Advantage';
+    }
+
     switch (player1.points) {
       case 0:
         player1Score = 'Love';
