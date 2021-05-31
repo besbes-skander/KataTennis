@@ -1,12 +1,15 @@
 import {Player} from "./player";
+import {ScoreService} from "../services/score.service";
 
 export class Game {
   private _player1;
   private _player2;
+  private scoreService: ScoreService;
 
   constructor(player1: Player, player2: Player) {
     this._player1 = player1;
     this._player2 = player2;
+    this.scoreService = new ScoreService();
   }
 
   get player2() {
@@ -26,42 +29,7 @@ export class Game {
   }
 
   score(): string {
-    let player1Score: string;
-    let player2Score: string;
-    switch (this.player1.points) {
-      case 0:
-        player1Score = 'Love';
-        break;
-      case 1:
-        player1Score = 'Fifteen';
-        break;
-      case 2:
-        player1Score = 'Thirty';
-        break;
-      case 3:
-        player1Score = 'Forty';
-        break;
-      default:
-        player1Score = 'Love'
-    }
-    switch (this.player2.points) {
-      case 0:
-        player2Score = 'Love';
-        break;
-      case 1:
-        player2Score = 'Fifteen';
-        break;
-      case 2:
-        player2Score = 'Thirty';
-        break;
-      case 3:
-        player2Score = 'Forty';
-        break;
-      default:
-        player2Score = 'Love';
-    }
-
-    return player1Score + ' - ' + player2Score;
+    return this.scoreService.getScore(this.player1, this.player2);
   }
 
   addPoint(name: string): string {

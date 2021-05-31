@@ -95,4 +95,18 @@ describe('Game', () => {
 
     expect(game.score()).toEqual('Forty - Love');
   });
+
+  it('should return score Deuce when player1 and player2 scores 3 points', () => {
+    let game = new Game(player1, player2);
+
+    game.addPoint('Player 1');
+    game.addPoint('Player 1');
+    game.addPoint('Player 1');
+
+    game.addPoint('Player 2');
+    game.addPoint('Player 2');
+    game.addPoint('Player 2');
+
+    expect(game.score()).toEqual('Deuce');
+  });
 });
