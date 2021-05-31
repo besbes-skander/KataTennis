@@ -26,7 +26,15 @@ export class Game {
   }
 
   score(): string {
-    return 'Love - Love';
+    let player1Score = 'Love';
+    let player2Score = 'Love';
+    if(this.player1.points === 1) {
+      player1Score = 'Fifteen';
+    }
+    if(this.player2.points === 1) {
+      player2Score = 'Fifteen';
+    }
+    return player1Score + ' - ' + player2Score;
   }
 
   addPoint(name: string): string {
