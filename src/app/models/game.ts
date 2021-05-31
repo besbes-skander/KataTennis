@@ -31,8 +31,14 @@ export class Game {
     if(this.player1.points === 1) {
       player1Score = 'Fifteen';
     }
+    if(this.player1.points === 2) {
+      player1Score = 'Thirty';
+    }
     if(this.player2.points === 1) {
       player2Score = 'Fifteen';
+    }
+    if(this.player2.points === 2) {
+      player2Score = 'Thirty';
     }
     return player1Score + ' - ' + player2Score;
   }
