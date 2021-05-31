@@ -25,12 +25,17 @@ export class Game {
     this._player1 = value;
   }
 
-  score() : string{
+  score(): string {
     return '0 - 0';
   }
 
-  addPoint(name: string) : string {
-    this.player1.points = 1;
+  addPoint(name: string): string {
+    if (this.player1.name === name) {
+      this.player1.points = 1;
+    } else {
+      this.player2.points = 1;
+    }
+    
     return name;
   }
 }
