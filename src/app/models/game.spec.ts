@@ -46,4 +46,10 @@ describe('Game', () => {
 
     expect(game.player1.points).toEqual(1);
   });
+
+  it('should throw error when player unknown', () => {
+    let game = new Game(player1, player2);
+    
+    expect(() => game.addPoint('Player 3')).toThrow(Error('Unknown player'));
+  });
 });

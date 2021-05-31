@@ -32,10 +32,12 @@ export class Game {
   addPoint(name: string): string {
     if (this.player1.name === name) {
       this.player1.points = 1;
-    } else {
+    } else if (this.player2.name === name) {
       this.player2.points = 1;
+    } else {
+      throw Error('Unknown player');
     }
-    
+
     return name;
   }
 }
