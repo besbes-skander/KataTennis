@@ -42,14 +42,14 @@ describe('Game', () => {
   it('should return player2 with points = 1 when he score', () => {
     let game = new Game(player1, player2);
 
-    const scorer = game.addPoint(player1.name);
+    const scorer = game.addPoint(player2.name);
 
-    expect(game.player1.points).toEqual(1);
+    expect(game.player2.points).toEqual(1);
   });
 
   it('should throw error when player unknown', () => {
     let game = new Game(player1, player2);
-    
+
     expect(() => game.addPoint('Player 3')).toThrow(Error('Unknown player'));
   });
 });
