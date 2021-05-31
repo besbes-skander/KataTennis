@@ -62,4 +62,10 @@ describe('Game', () => {
 
     expect(game.player1.points).toEqual(2);
   });
+
+  it('should return score Love - Love when init game', () => {
+    let game = new Game(player1, player2);
+
+    expect(game.score()).toEqual('Love - Love');
+  });
 });

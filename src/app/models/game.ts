@@ -26,7 +26,7 @@ export class Game {
   }
 
   score(): string {
-    return '0 - 0';
+    return 'Love - Love';
   }
 
   addPoint(name: string): string {
