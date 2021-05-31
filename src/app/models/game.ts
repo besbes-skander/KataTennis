@@ -26,20 +26,41 @@ export class Game {
   }
 
   score(): string {
-    let player1Score = 'Love';
-    let player2Score = 'Love';
-    if(this.player1.points === 1) {
-      player1Score = 'Fifteen';
+    let player1Score: string;
+    let player2Score: string;
+    switch (this.player1.points) {
+      case 0:
+        player1Score = 'Love';
+        break;
+      case 1:
+        player1Score = 'Fifteen';
+        break;
+      case 2:
+        player1Score = 'Thirty';
+        break;
+      case 3:
+        player1Score = 'Forty';
+        break;
+      default:
+        player1Score = 'Love'
     }
-    if(this.player1.points === 2) {
-      player1Score = 'Thirty';
+    switch (this.player2.points) {
+      case 0:
+        player2Score = 'Love';
+        break;
+      case 1:
+        player2Score = 'Fifteen';
+        break;
+      case 2:
+        player2Score = 'Thirty';
+        break;
+      case 3:
+        player2Score = 'Forty';
+        break;
+      default:
+        player2Score = 'Love';
     }
-    if(this.player2.points === 1) {
-      player2Score = 'Fifteen';
-    }
-    if(this.player2.points === 2) {
-      player2Score = 'Thirty';
-    }
+
     return player1Score + ' - ' + player2Score;
   }
 
