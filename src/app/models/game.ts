@@ -30,6 +30,7 @@ export class Game {
   }
 
   addPoint(name: string) : string {
+    this.player1.points = 1;
     return name;
   }
 }

@@ -30,4 +30,12 @@ describe('Game', () => {
 
     expect(scorer).toEqual('Player 1');
   });
+
+  it('should return player1 with points = 1 when he score', () => {
+    let game = new Game(player1, player2);
+
+    const scorer = game.addPoint(player1.name);
+
+    expect(game.player1.points).toEqual(1);
+  });
 });
