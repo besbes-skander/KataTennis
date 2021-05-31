@@ -17,8 +17,12 @@ export class ScoreService {
       return 'Deuce';
     }
 
+    if (this.haveWinner(player1, player2)) {
+      return (player1.points > player2.points ? player1.name : player2.name) + ' Won';
+    }
+
     if (this.isAdvantage(player1, player2)) {
-      return player1.points > player2.points ? player1.name + ' Advantage' : player2.name + ' Advantage';
+      return (player1.points > player2.points ? player1.name : player2.name) + ' Advantage';
     }
 
     switch (player1.points) {
@@ -63,5 +67,9 @@ export class ScoreService {
 
   private isDeuce(player1: Player, player2: Player): boolean {
     return player1.points === player2.points && player1.points >= 3 && player2.points >= 3;
+  }
+
+  private haveWinner(player1: Player, player2: Player) {
+    return (player1.points > 3 || player2.points > 3) &&(Math.abs(player1.points - player2.points) === 2);
   }
 }

@@ -109,4 +109,11 @@ describe('Game', () => {
     expect(game.score()).toEqual('Deuce');
   });
 
+  it('should return player 1 won the game', () => {
+    addPoints(player1, 6);
+    addPoints(player2, 4);
+
+    expect(game.score()).toEqual('Player 1 Won');
+  });
+
 });
