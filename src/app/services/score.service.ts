@@ -9,7 +9,7 @@ export class ScoreService {
   constructor() {
   }
 
-  getScore(player1: Player, player2: Player) {
+  getScore(player1: Player, player2: Player) : string {
     let player1Score: string;
     let player2Score: string;
 
@@ -25,38 +25,8 @@ export class ScoreService {
       return (player1.points > player2.points ? player1.name : player2.name) + ' Advantage';
     }
 
-    switch (player1.points) {
-      case 0:
-        player1Score = 'Love';
-        break;
-      case 1:
-        player1Score = 'Fifteen';
-        break;
-      case 2:
-        player1Score = 'Thirty';
-        break;
-      case 3:
-        player1Score = 'Forty';
-        break;
-      default:
-        player1Score = 'Love'
-    }
-    switch (player2.points) {
-      case 0:
-        player2Score = 'Love';
-        break;
-      case 1:
-        player2Score = 'Fifteen';
-        break;
-      case 2:
-        player2Score = 'Thirty';
-        break;
-      case 3:
-        player2Score = 'Forty';
-        break;
-      default:
-        player2Score = 'Love';
-    }
+    player1Score = this.getPointName(player1.points);
+    player2Score = this.getPointName(player2.points);
 
     return player1Score + ' - ' + player2Score;
   }
@@ -71,5 +41,24 @@ export class ScoreService {
 
   private haveWinner(player1: Player, player2: Player) {
     return (player1.points > 3 || player2.points > 3) &&(Math.abs(player1.points - player2.points) === 2);
+  }
+
+  private getPointName(points: number) {
+    switch (points) {
+      case 0:
+        return 'Love';
+        break;
+      case 1:
+        return 'Fifteen';
+        break;
+      case 2:
+        return 'Thirty';
+        break;
+      case 3:
+        return 'Forty';
+        break;
+      default:
+        return 'Love'
+    }
   }
 }
