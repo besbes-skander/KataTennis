@@ -2,8 +2,8 @@ import {Player} from "./player";
 import {ScoreService} from "../services/score.service";
 
 export class Game {
-  private _player1;
-  private _player2;
+  private _player1 : Player;
+  private _player2 : Player;
   private scoreService: ScoreService;
 
   constructor(player1: Player, player2: Player) {

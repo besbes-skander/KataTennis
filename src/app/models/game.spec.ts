@@ -53,7 +53,7 @@ describe('Game', () => {
   });
 
 
-  it('should return player1 with points = 1 when he score', () => {
+  it('should return player1 with points = 2 when he score', () => {
     addPoints(player1, 2);
 
     expect(game.player1.points).toEqual(2);
