@@ -39,11 +39,11 @@ export class ScoreService {
     return player1.points === player2.points && player1.points >= 3 && player2.points >= 3;
   }
 
-  private haveWinner(player1: Player, player2: Player) {
+  private haveWinner(player1: Player, player2: Player): boolean {
     return (player1.points > 3 || player2.points > 3) &&(Math.abs(player1.points - player2.points) === 2);
   }
 
-  private getPointName(points: number) {
+  private getPointName(points: number): string {
     switch (points) {
       case 0:
         return 'Love';
